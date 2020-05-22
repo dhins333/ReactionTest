@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactionTest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    {{>header}}
+    <section id="mainArea">
+        <div id="mainAreaContainer">
+            <div id="mainText">
+                <h3 class="mar-b-s l-heading" id="mainHead">Click anywhere on the screen when the color turns green</h3>
+                <p class="mar-b-s m-heading" id="mainContent">Click on Begin Test to start</p>
+            </div>
+            <div id="buttonGroup" class="mar-b-s">
+                <a href="#" id="beginButton">Begin Test</a>
+            </div>
+            <div id="stats" class="mar-t-l">
+                <p id="try">Tries:0/5</p>
+                <p id="average">Average:</p>
+                <p id="fastest">Fastest:</p>
+                <p id="slowest">Slowest:</p>
+            </div>
+        </div>
+    </section>
+    <script src="./js/home.js" type="module"></script>
+</body>
+</html>

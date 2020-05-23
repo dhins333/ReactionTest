@@ -4,7 +4,8 @@
   "description": "Test the reaction time to a visual stimulus",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd -f ./config/env_var.env nodemon ./src/index.js -e js,hbs,css"
+    "dev": "env-cmd -f ./config/env_var.env nodemon ./src/index.js -e js,hbs,css",
+    "start":"node ./src/index.js"
   },
   "author": "",
   "license": "ISC",

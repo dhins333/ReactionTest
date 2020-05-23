@@ -126,9 +126,13 @@ class UI{
                 slowest:this.slowest
             });
             this.showMessage('Saved Score Successfully','#79d70f');
+            this.modalButton.removeAttribute('disabled');
+            this.modalButton.style.backgroundColor = '#f5a31a';
             this.modalButton.id = 'retry';
             this.modalButton.value = 'Retry';
         }catch(e){
+            this.modalButton.removeAttribute('disabled');
+            this.modalButton.style.backgroundColor = '#f5a31a';
             this.showMessage('Some Error Occured,try saving again','#d32626');
         }
     }

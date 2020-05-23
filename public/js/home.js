@@ -58,6 +58,8 @@ function modalButtonFun(e){
             name.placeholder = 'Name cannot be empty';
         }
         else{
+            e.target.setAttribute('disabled','disabled');
+            e.target.style.backgroundColor = '#b5b0b3';
             ui.saveToDb(name.value);
         }
     }

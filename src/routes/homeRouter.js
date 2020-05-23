@@ -2,7 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const mongoose = require('mongoose');
 const Score = require('../models/Score');
-mongoose.connect(process.env.DEV_URL,{useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true});
+mongoose.connect(process.env.DB_URL,{useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true});
 
 router.get('/',(req,res) => {
     res.render('home');

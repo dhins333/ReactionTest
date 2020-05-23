@@ -4,13 +4,14 @@
   "description": "Test the reaction time to a visual stimulus",
   "main": "index.js",
   "scripts": {
-    "dev":"env-cmd -f ./config/env_var.env nodemon ./src/index.js -e js,hbs,css"
+    "dev": "env-cmd -f ./config/env_var.env nodemon ./src/index.js -e js,hbs,css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.1.1"
+    "hbs": "^4.1.1",
+    "mongoose": "^5.9.15"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

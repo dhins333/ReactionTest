@@ -1,5 +1,5 @@
 class UI{
-    constructor(mainArea,beginTest,mainHead,mainContent,buttonGroup,tries,average,fastest,slowest){
+    constructor(mainArea,beginTest,mainHead,mainContent,buttonGroup,tries,average,fastest,slowest,overlay,messageBox,message,modalButton){
         this.state = 'Begin';
         this.average = 0;
         this.tries = 0;
@@ -17,6 +17,10 @@ class UI{
         this.averageField = average;
         this.fastestField = fastest;
         this.slowestField = slowest;
+        this.overlay = overlay;
+        this.messageBox = messageBox;
+        this.message = message;
+        this.modalButton = modalButton;
     }
 
      setWaitState(state){
@@ -25,15 +29,15 @@ class UI{
         this.mainHead.textContent = 'Wait for it...';
         this.mainContent.style.display = 'none';
         this.beginTest.remove();
-        setTimeout(() => {this.setClickState('Click')},Math.round(Math.random() * (5000 - 1000) + 1000))
+        setTimeout(() => {this.setClickState('Click')},Math.round(Math.random() * (5000 - 2000) + 2000))
     }
 
     setSoonState(state){
         this.state = state;
         this.mainHead.textContent = 'Clicked Too Soon...';
-        this.mainContent.style.display = 'none';
-        this.mainContent.textContent = 'Try Again';
-        this.addTryAgain();
+        this.mainContent.style.display = 'block';
+        this.mainContent.textContent = 'Wait for counter reset...';
+        
     }
 
     setClickState(state){
@@ -43,6 +47,10 @@ class UI{
                 this.startTime = new Date();
                 this.mainHead.textContent = 'Click Now';
                 this.mainContent.style.display = 'none';
+        }
+        else{
+            this.mainContent.style.display = 'none';
+            this.addTryAgain();
         }
     }
 
@@ -103,6 +111,37 @@ class UI{
         this.averageField.textContent = `Average:${this.average}`;
         this.fastestField.textContent  = `Fastest:${this.fastest}`;
         this.slowestField.textContent = `Slowest:${this.slowest}`;            
+    }
+
+    enableModal(){
+        this.overlay.style.display = 'flex';
+    }
+
+    async saveToDb(name){
+        try{
+            const result = await axios.post('/saveScore',{
+                name,
+                average:this.average,
+                fastest:this.fastest,
+                slowest:this.slowest
+            });
+            this.showMessage('Saved Score Successfully','#79d70f');
+            this.modalButton.id = 'retry';
+            this.modalButton.value = 'Retry';
+        }catch(e){
+            this.showMessage('Some Error Occured,try saving again','#d32626');
+        }
+    }
+
+    showMessage(text,color){
+        this.message.textContent = text;
+        this.messageBox.style.backgroundColor = color;
+        this.messageBox.style.display = 'block';
+        setTimeout(() => {this.hideMessage()},2000);
+    }
+
+    hideMessage(){
+        this.messageBox.style.display = 'none';
     }
 }
 

@@ -23,6 +23,14 @@ a{
     color:var(--black);
 }
 
+input[type=text]{
+    display: block;
+    width: 100%;
+    padding:0.75rem 1rem;
+    border:none;
+    border-radius: 4px;
+}
+
 .mar-l-s{
     margin-left:1rem;
 }
@@ -46,7 +54,7 @@ a{
 #header{
     box-shadow: 0px 6px 20px 0px rgba(0,0,0,0.33);
     position: sticky;
-    z-index:2;
+    z-index:3;
     background-color: var(--white);
 }
 
@@ -117,14 +125,28 @@ a{
     justify-content: center;
 }
 
-#buttonGroup a{
+#buttonGroup a,#saveScoreModal,#retry{
     color:var(--white);
     padding:0.5rem 1rem;
     background-color: var(--blue);
     border-radius: 3px;
+    border:none;
+    cursor: pointer;
+}
+
+#saveScoreModal,#retry{
+    background-color: var(--orange);
 }
 
 #buttonGroup a:hover{
+    opacity: 0.9;
+}
+
+#saveScore:hover{
+    opacity: 0.9;
+}
+
+#retry:hover{
     opacity: 0.9;
 }
 
@@ -134,4 +156,36 @@ a{
     max-width: 1100px;
     margin: auto;
 
+}
+
+#overlay{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index:2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalContainer{
+    width: 400px;
+    padding:1rem;
+}
+
+#modal  form{
+    text-align: center;
+}
+
+
+#messageBox{
+    color:var(--white);
+    background-color: var(--black);
+    padding:1rem;
+    width: 100%;
+    border:none;
+    border-radius: 3px;
+    display: none;
 }

@@ -9,13 +9,20 @@ const tries = document.querySelector('#try');
 const average = document.querySelector('#average');
 const fastest = document.querySelector('#fastest');
 const slowest = document.querySelector('#slowest');
-const ui = new UI(mainArea,beginTest,mainHead,mainContent,buttonGroup,tries,average,fastest,slowest);
+const overlay = document.querySelector('#overlay');
+const modalButton = document.querySelector('#saveScoreModal');
+const name = document.querySelector('#name');
+const messageBox = document.querySelector('#messageBox');
+const message = document.querySelector('#message');
+const ui = new UI(mainArea,beginTest,mainHead,mainContent,buttonGroup,tries,average,fastest,slowest,overlay,messageBox,message,modalButton);
 
 loadEventHandlers();
 
 function loadEventHandlers(){
     beginTest.addEventListener('click',beginTestFun);
     mainArea.addEventListener('click',mainAreaFun);
+    modalButton.addEventListener('click',modalButtonFun);
+    overlay.addEventListener('click',overlayFun);
 }
 
 function beginTestFun(e){
@@ -34,9 +41,35 @@ function mainAreaFun(e){
         const end = new Date();
         ui.setClickedState('Clicked',end);
     }
+    else if(e.target.id === 'saveScore'){
+        ui.enableModal();
+    }
     else{
         if(e.target!=beginTest && ui.state === 'Wait'){
             ui.setSoonState('Soon');
         }
+    }
+}
+
+function modalButtonFun(e){
+    e.preventDefault();
+    if(e.target.id === 'saveScoreModal'){
+        if(name.value === ''){
+            name.placeholder = 'Name cannot be empty';
+        }
+        else{
+            ui.saveToDb(name.value);
+        }
+    }
+    else{
+        window.location.reload();
+    }
+
+}
+
+function overlayFun(e){
+    e.preventDefault();
+    if(e.target.id === 'retry'){
+        window.location.reload();
     }
 }

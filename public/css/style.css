@@ -5,6 +5,7 @@
     --red:#d32626;
     --green:#79d70f;
     --blue:#2b87d1;
+    --light-orange:#ffe2bc;
 }
 
 *{
@@ -29,6 +30,10 @@ input[type=text]{
     padding:0.75rem 1rem;
     border:none;
     border-radius: 4px;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .mar-l-s{
@@ -189,3 +194,35 @@ input[type=text]{
     border-radius: 3px;
     display: none;
 }
+
+#leaderBoard{
+    background-color: var(--white);
+    margin-top: 3rem;
+}
+
+#leaderBoardList{
+    background-color: var(--white);
+    max-width: 1100px;
+    margin: auto;
+}
+
+.flex-list{
+    display: flex;
+    padding:1rem;
+    font-size: 1.10rem;
+    
+}
+
+.flex-list:nth-child(even){
+    background-color: var(--light-orange);
+}
+
+.flex-3{
+    flex:3;
+}
+
+.flex-1{
+    flex:1;
+    text-align: center;
+}
+

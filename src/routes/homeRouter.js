@@ -23,4 +23,13 @@ router.post('/saveScore',async (req,res) => {
     }
 })
 
+router.get('/leaderboards',async (req,res) => {
+    try{
+        const data =  await Score.find({}).sort({average:'asc'}).limit(10);
+        res.render('leaderboards',{data});
+    }catch(e){
+        res.status(400).send();
+    }
+})
+
 module.exports = router;

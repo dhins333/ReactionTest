@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactionTest | Leaderboards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    {{>header}}
+    <section id="leaderBoard">
+        <ul id="leaderBoardList">
+            <li class="flex-list">
+                <p class="flex-3 bold">Name</p>
+                <p class="flex-1 bold">Average Time in ms</p>
+            </li>
+            {{#each data}}
+                <li class="flex-list">
+                    <p class="flex-3">{{this.name}}</p>
+                    <p class="flex-1">{{this.average}}ms</p>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</body>
+</html>

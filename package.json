@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f ./config/env_var.env nodemon ./src/index.js -e js,hbs,css",
-    "start":"node ./src/index.js"
+    "start": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "mongoose": "^5.9.15"
+    "mongoose": "^5.10.2"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
